@@ -1,0 +1,47 @@
+<!ENTITY % docclass
+ "article|beamer|book|letter|memoir|minimal|proc|report|slides"
+>
+
+<!ELEMENT document ()>
+<!ATTLIST document
+ class		(%docclass;)	"article"
+ opts		CDATA		#IMPLIED
+ title		CDATA		#REQUIRED
+ title-latex	CDATA		#REQUIRED
+ author		CDATA		#IMPLIED
+ author-latex	CDATA		#IMPLIED
+ date		CDATA		#IMPLIED
+ date-latex	CDATA		#IMPLIED
+ package	CDATA		#IMPLIED
+>
+
+<!ELEMENT latex (#PCDATA)*>
+
+<!ELEMENT abstract (#PCDATA)>
+
+<!ELEMENT section ()>
+<!ATTLIST section
+ title		CDATA	#IMPLIED
+ title-latex	CDATA	#IMPLIED
+ short-title	CDATA	#IMPLIED
+>
+
+<!ELEMENT olist (item*)>
+<!ELEMENT ulist (item*)>
+<!ELEMENT dlist (item*)>
+
+<!ELEMENT item ()>
+<!ATTLIST item
+ title		CDATA	#IMPLIED
+ title-latex	CDATA	#IMPLIED
+>
+
+<!ELEMENT figure ()>
+<!ATTLIST figure
+ caption	CDATA	#IMPLIED
+>
+
+
+<!ELEMENT appendix ()>
+
+
