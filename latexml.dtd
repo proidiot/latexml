@@ -2,27 +2,34 @@
  "article|beamer|book|letter|memoir|minimal|proc|report|slides"
 >
 
-<!ELEMENT document ()>
+<!ELEMENT document (opt*,package*,title?,author?,date?,()*,appendix*)>
 <!ATTLIST document
  class		(%docclass;)	"article"
  opts		CDATA		#IMPLIED
- title		CDATA		#REQUIRED
- title-latex	CDATA		#REQUIRED
+ packages	CDATA		#IMPLIED
+ title		CDATA		#IMPLIED
  author		CDATA		#IMPLIED
- author-latex	CDATA		#IMPLIED
  date		CDATA		#IMPLIED
- date-latex	CDATA		#IMPLIED
- package	CDATA		#IMPLIED
 >
+
+<!ELEMENT opt (#PCDATA)>
+
+<!ELEMENT package (#PCDATA)>
+
+<!ELEMENT title ()>
+
+<!ELEMENT author ()>
+
+<!ELEMENT date ()>
+
 
 <!ELEMENT latex (#PCDATA)*>
 
-<!ELEMENT abstract (#PCDATA)>
+<!ELEMENT abstract ()>
 
-<!ELEMENT section ()>
+<!ELEMENT section (title?,()*)>
 <!ATTLIST section
  title		CDATA	#IMPLIED
- title-latex	CDATA	#IMPLIED
  short-title	CDATA	#IMPLIED
 >
 
@@ -30,17 +37,28 @@
 <!ELEMENT ulist (item*)>
 <!ELEMENT dlist (item*)>
 
-<!ELEMENT item ()>
+<!ELEMENT item (title?,()*)>
 <!ATTLIST item
  title		CDATA	#IMPLIED
- title-latex	CDATA	#IMPLIED
 >
 
-<!ELEMENT figure ()>
+<!ELEMENT figure
+ (((image|table),caption?)|(caption?,(image|table))|(image|table))
+>
 <!ATTLIST figure
  caption	CDATA	#IMPLIED
 >
 
+<!ELEMENT image EMPTY>
+<!ATTLIST image
+ src	CDATA	#REQUIRED
+>
+
+<!ELEMENT table (tr*)>
+
+<!ELEMENT tr (td*)>
+
+<!ELEMENT td ()>
 
 <!ELEMENT appendix ()>
 
