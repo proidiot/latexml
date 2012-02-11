@@ -7,16 +7,16 @@ Requirements
 ------------
 
 At the very least, you will need:
-* an xslt processor
-* an implementation of [TeXML] (http://getfo.org/texml/)
-* [LaTeX] (http://www.latex-project.org/)
+ * an xslt processor
+ * an implementation of [TeXML] (http://getfo.org/texml/)
+ * [LaTeX] (http://www.latex-project.org/)
 
 It is recommended that you have:
-* a text editor that is XML-aware ([vim](http://www.vim.org/) FTW)
-* a custom XSLT (to transform your XML into latexml)
-* a LaTeX makefile (I like [latexmk](http://www.phys.psu.edu/~collins/software/latexmk-jcc/))
-* a bunch of useful LaTeX packages ([TeX Live] (http://www.tug.org/texlive/), [CTAN] (http://ctan.org/), etc.)
-* [Impressive] (http://impressive.sourceforge.net/) (for [Beamer](https://bitbucket.org/rivanvx/beamer/wiki/Home) presentations)
+ * a text editor that is XML-aware ([vim](http://www.vim.org/) FTW)
+ * a custom XSLT (to transform your XML into latexml)
+ * a LaTeX makefile (I like [latexmk](http://www.phys.psu.edu/~collins/software/latexmk-jcc/))
+ * a bunch of useful LaTeX packages ([TeX Live] (http://www.tug.org/texlive/), [CTAN] (http://ctan.org/), etc.)
+ * [Impressive] (http://impressive.sourceforge.net/) (for [Beamer](https://bitbucket.org/rivanvx/beamer/wiki/Home) presentations)
 
 LaTeX References
 ----------------
