@@ -7,11 +7,13 @@ Requirements
 ------------
 
 At the very least, you will need:
+
  * an xslt processor
  * an implementation of [TeXML] (http://getfo.org/texml/)
  * [LaTeX] (http://www.latex-project.org/)
 
 It is recommended that you have:
+
  * a text editor that is XML-aware ([vim](http://www.vim.org/) FTW)
  * a custom XSLT (to transform your XML into latexml)
  * a LaTeX makefile (I like [latexmk](http://www.phys.psu.edu/~collins/software/latexmk-jcc/))
