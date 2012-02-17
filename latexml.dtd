@@ -1,33 +1,42 @@
 <!ENTITY % docclass
  "article|beamer|book|letter|memoir|minimal|proc|report|slides"
 >
+<!ENTITY % topmatter "title?,author?,date?,abstract?">
+<!ENTITY % bottommatter "appendix*">
+<!ENTITY % figurecontent "code|image">
+<!ENTITY % text "newline|latex|#PCDATA">
+<!ENTITY % list "olist|ulist|dlist">
+<!ENTITY % content "figure|%figurecontent;|%list;|%text;">
+<!ENTITY % topcontent "section|%content;">
 
-<!ELEMENT document (opt*,package*,title?,author?,date?,()*,appendix*)>
+<!ELEMENT document (opt*,package*,%topmatter;,(%topcontent;)*,%bottommatter;)>
 <!ATTLIST document
  class		(%docclass;)	"article"
- opts		CDATA		#IMPLIED
- packages	CDATA		#IMPLIED
- title		CDATA		#IMPLIED
- author		CDATA		#IMPLIED
- date		CDATA		#IMPLIED
+ title-page	(0|1)		"1"
 >
 
 <!ELEMENT opt (#PCDATA)>
 
-<!ELEMENT package (#PCDATA)>
+<!ELEMENT package (opt*)>
+<!ATTLIST package
+ name	CDATA	#REQUIRED
+>
 
-<!ELEMENT title ()>
+<!ELEMENT title (%test;)>
 
-<!ELEMENT author ()>
+<!ELEMENT author (%text;)>
 
-<!ELEMENT date ()>
+<!ELEMENT date (%text;)>
+<!ATTLIST date
+ today	(0|1)	"0"
+>
 
 
 <!ELEMENT latex (#PCDATA)*>
 
-<!ELEMENT abstract ()>
+<!ELEMENT abstract (%text;)>
 
-<!ELEMENT section (title?,()*)>
+<!ELEMENT section (title?,(%topcontent;)*)>
 <!ATTLIST section
  title		CDATA	#IMPLIED
  short-title	CDATA	#IMPLIED
@@ -37,29 +46,32 @@
 <!ELEMENT ulist (item*)>
 <!ELEMENT dlist (item*)>
 
-<!ELEMENT item (title?,()*)>
+<!ELEMENT item (title?,(%content;)*)>
 <!ATTLIST item
  title		CDATA	#IMPLIED
 >
 
-<!ELEMENT figure
- (((image|table),caption?)|(caption?,(image|table))|(image|table))
->
-<!ATTLIST figure
- caption	CDATA	#IMPLIED
->
+<!ELEMENT figure (((%figurecontent;),caption?)|(caption,(%figurecontent;)))>
+
+<!ELEMENT caption (%text;)>
 
 <!ELEMENT image EMPTY>
 <!ATTLIST image
  src	CDATA	#REQUIRED
 >
 
-<!ELEMENT table (tr*)>
+<!ELEMENT code (#PCDATA)>
+<!ATTLIST code
+ lang	CDATA	#REQUIRED
+ src	CDATA	#IMPLIED
+ frame	(0|1)	"1"
+>
 
-<!ELEMENT tr (td*)>
+<!ELEMENT newline EMPTY>
+<!ATTLIST
+ force	(0|1)	"1"
+>
 
-<!ELEMENT td ()>
-
-<!ELEMENT appendix ()>
+<!ELEMENT appendix (%content;)>
 
 
