@@ -22,7 +22,7 @@
  name	CDATA	#REQUIRED
 >
 
-<!ELEMENT title (%test;)>
+<!ELEMENT title (%text;)>
 
 <!ELEMENT author (%text;)>
 
